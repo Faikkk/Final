@@ -1,7 +1,6 @@
-package Final;
 
+public class Dataset implements Comparable<Dataset> {
 
-public class Dataset {
     private Integer number_of_item;
     private Integer item_id;
     private String name;
@@ -17,10 +16,12 @@ public class Dataset {
     private Integer height;
     private Integer width;
 
-    public Dataset(Integer number_of_item, Integer item_id, String name, String category, Double price, String old_price,
+    public Dataset(Integer number_of_item, Integer item_id, String name, String category, Double price,
+            String old_price,
             Boolean sellable_online, String link,
             Boolean other_colors, String short_description, String designer, Integer depth, Integer height,
             Integer width) {
+        this.number_of_item = number_of_item;
         this.item_id = item_id;
         this.name = name;
         this.category = category;
@@ -34,9 +35,8 @@ public class Dataset {
         this.depth = depth;
         this.height = height;
         this.width = width;
+
     }
-
-
 
     public Integer getItem_id() {
         return item_id;
@@ -152,20 +152,26 @@ public class Dataset {
 
     @Override
     public String toString() {
-        return ("Entity " + this.getNumber_of_item() + "\n" + 
-        "Item Id: " + this.getItem_id() + "\n" +
-        "Name: " + this.getName() + "\n" +
-        "Category: " + this.getCategory() + "\n" +
-        "Price: " + this.getPrice() + "\n" +
-        "Old Price: " + this.getPrice() + "\n" +
-        "Sellable Online: " + this.getSellable_online() + "\n" +
-        "Link: " + this.getLink() + "\n" +
-        "Other Colors: " + this.getOther_colors() + "\n" +
-        "Short Description: " + this.getShort_description() + "\n" +
-        "Designer: " + this.getDesigner() + "\n" +
-        "Depth: " + this.getDepth() + "\n" +
-        "Height: " + this.getHeight() + "\n" +
-        "Width: " + this.getWidth() + "\n");
+        return ("\n" + "Entity: " + this.getNumber_of_item() + "\n" +
+                "Item Id: " + this.getItem_id() + "\n" +
+                "Name: " + this.getName() + "\n" +
+                "Category: " + this.getCategory() + "\n" +
+                "Price: " + this.getPrice() + "\n" +
+                "Old Price: " + this.getPrice() + "\n" +
+                "Sellable Online: " + this.getSellable_online() + "\n" +
+                "Link: " + this.getLink() + "\n" +
+                "Other Colors: " + this.getOther_colors() + "\n" +
+                "Short Description: " + this.getShort_description() + "\n" +
+                "Designer: " + this.getDesigner() + "\n" +
+                "Depth: " + this.getDepth() + "\n" +
+                "Height: " + this.getHeight() + "\n" +
+                "Width: " + this.getWidth() + "\n");
+    }
+
+    @Override
+    public int compareTo(Dataset o) {
+        // TODO Auto-generated method stub
+        return 0;
     }
 
 }

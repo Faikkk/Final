@@ -1,16 +1,39 @@
-package Final;
-
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.Buffer;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
 public class Main {
+
+    static final String[] menuOptions = { "Which field do you want to list?", "1. Item Id", "2. Name", "3. Category",
+            "4. Price", "5. Old Price", "6. Sellable Online", "7. Link", "8. Other Colors", "9. Short Description",
+            "10. Designer", "11. Depth", "12. Height", "13. Width",
+            "14.Would you like to list it in ASCENDING or DESCENDING order?" };
+
+    public static void printTheMenuOptions() {
+        System.out.println(menuOptions[1]);
+        System.out.println(menuOptions[2]);
+        System.out.println(menuOptions[3]);
+        System.out.println(menuOptions[4]);
+        System.out.println(menuOptions[5]);
+        System.out.println(menuOptions[6]);
+        System.out.println(menuOptions[7]);
+        System.out.println(menuOptions[8]);
+        System.out.println(menuOptions[9]);
+        System.out.println(menuOptions[10]);
+        System.out.println(menuOptions[11]);
+        System.out.println(menuOptions[12]);
+        System.out.println(menuOptions[13]);
+    }
+
     public static void main(String[] args) {
+
         List<Dataset> dataset = new ArrayList<>();
         String line;
         String column_headers = null;
@@ -77,12 +100,10 @@ public class Main {
             // TO PRINT ALL OF THE ENTITIES:
 
             // for (int i = 0; i < dataset.size(); i++) {
-            // Dataset current = dataset.get(i);
-            // System.out.printf("%5s %n", current);
+            //     Dataset field = dataset.get(i);
+            //     System.out.printf("%5s %n", field);
             // }
             // System.out.println();
-
-            //
 
         } catch (Exception e) { // CHANGE LATER
             e.printStackTrace();
@@ -124,110 +145,101 @@ public class Main {
 
                                 case 2:
                                     System.out.println("Which field do you want to list?");
-                                    System.out.println("1. Item Id");
-                                    System.out.println("2. Name");
-                                    System.out.println("3. Category");
-                                    System.out.println("4. Price");
-                                    System.out.println("5. Old Price");
-                                    System.out.println("6. Sellable Online");
-                                    System.out.println("7. Link");
-                                    System.out.println("8. Other Colors");
-                                    System.out.println("9. Short Description");
-                                    System.out.println("10. Designer");
-                                    System.out.println("11. Depth");
-                                    System.out.println("12. Height");
-                                    System.out.println("13. Width");
+                                    printTheMenuOptions();
 
                                     int fourth_input = sc.nextInt();
                                     switch (fourth_input) {
+
                                         case 1:
                                             for (int i = 0; i < 20; i++) {
-                                                Integer current = dataset.get(i).getItem_id();
-                                                System.out.println(current);
+                                                Integer field = dataset.get(i).getItem_id();
+                                                System.out.println(field);
+
                                             }
                                             break;
 
                                         case 2:
                                             for (int i = 0; i < 20; i++) {
-                                                String current = dataset.get(i).getName();
-                                                System.out.println(current);
+                                                String field = dataset.get(i).getName();
+                                                System.out.println(field);
                                             }
                                             break;
 
                                         case 3:
                                             for (int i = 0; i < 20; i++) {
-                                                String current = dataset.get(i).getCategory();
-                                                System.out.println(current);
+                                                String field = dataset.get(i).getCategory();
+                                                System.out.println(field);
                                             }
                                             break;
 
                                         case 4:
                                             for (int i = 0; i < 20; i++) {
-                                                Double current = dataset.get(i).getPrice();
-                                                System.out.println(current);
+                                                Double field = dataset.get(i).getPrice();
+                                                System.out.println(field);
                                             }
                                             break;
 
                                         case 5:
                                             for (int i = 0; i < 20; i++) {
-                                                String current = dataset.get(i).getOld_price();
-                                                System.out.println(current);
+                                                String field = dataset.get(i).getOld_price();
+                                                System.out.println(field);
                                             }
                                             break;
 
                                         case 6:
                                             for (int i = 0; i < 20; i++) {
-                                                Boolean current = dataset.get(i).getSellable_online();
-                                                System.out.println(current);
+                                                Boolean field = dataset.get(i).getSellable_online();
+                                                System.out.println(field);
                                             }
                                             break;
 
                                         case 7:
                                             for (int i = 0; i < 20; i++) {
-                                                String current = dataset.get(i).getLink();
-                                                System.out.println(current);
+                                                String field = dataset.get(i).getLink();
+                                                System.out.println(field);
                                             }
                                             break;
 
                                         case 8:
                                             for (int i = 0; i < 20; i++) {
-                                                Boolean current = dataset.get(i).getOther_colors();
-                                                System.out.println(current);
+                                                Boolean field = dataset.get(i).getOther_colors();
+                                                System.out.println(field);
+
                                             }
                                             break;
 
                                         case 9:
                                             for (int i = 0; i < 20; i++) {
-                                                String current = dataset.get(i).getShort_description();
-                                                System.out.println(current);
+                                                String field = dataset.get(i).getShort_description();
+                                                System.out.println(field);
                                             }
                                             break;
 
                                         case 10:
                                             for (int i = 0; i < 20; i++) {
-                                                String current = dataset.get(i).getDesigner();
-                                                System.out.println(current);
+                                                String field = dataset.get(i).getDesigner();
+                                                System.out.println(field);
                                             }
                                             break;
 
                                         case 11:
                                             for (int i = 0; i < 20; i++) {
-                                                Integer current = dataset.get(i).getDepth();
-                                                System.out.println(current);
+                                                Integer field = dataset.get(i).getDepth();
+                                                System.out.println(field);
                                             }
                                             break;
 
                                         case 12:
                                             for (int i = 0; i < 20; i++) {
-                                                Integer current = dataset.get(i).getHeight();
-                                                System.out.println(current);
+                                                Integer field = dataset.get(i).getHeight();
+                                                System.out.println(field);
                                             }
                                             break;
 
                                         case 13:
                                             for (int i = 0; i < 20; i++) {
-                                                Integer current = dataset.get(i).getWidth();
-                                                System.out.println(current);
+                                                Integer field = dataset.get(i).getWidth();
+                                                System.out.println(field);
                                             }
                                             break;
                                     }
@@ -244,113 +256,100 @@ public class Main {
                                     ListingBottomEntities(dataset);
                                     break;
 
-
                                 case 2:
                                     System.out.println("Which field do you want to list?");
-                                    System.out.println("1. Item Id");
-                                    System.out.println("2. Name");
-                                    System.out.println("3. Category");
-                                    System.out.println("4. Price");
-                                    System.out.println("5. Old Price");
-                                    System.out.println("6. Sellable Online");
-                                    System.out.println("7. Link");
-                                    System.out.println("8. Other Colors");
-                                    System.out.println("9. Short Description");
-                                    System.out.println("10. Designer");
-                                    System.out.println("11. Depth");
-                                    System.out.println("12. Height");
-                                    System.out.println("13. Width");
+                                    printTheMenuOptions();
 
                                     int sixth_input = sc.nextInt();
                                     switch (sixth_input) {
                                         case 1:
-                                            for (int i = 0; i < 20; i++) {
-                                                Integer current = dataset.get(i).getItem_id();
-                                                System.out.println(current);
+                                            for (int i = dataset.size() - 20; i < dataset.size(); i++) {
+                                                Integer field = dataset.get(i).getItem_id();
+                                                System.out.println(field);
                                             }
                                             break;
 
                                         case 2:
-                                            for (int i = 0; i < 20; i++) {
-                                                String current = dataset.get(i).getName();
-                                                System.out.println(current);
+                                            for (int i = dataset.size() - 20; i < dataset.size(); i++) {
+                                                String field = dataset.get(i).getName();
+                                                System.out.println(field);
                                             }
                                             break;
 
                                         case 3:
-                                            for (int i = 0; i < 20; i++) {
-                                                String current = dataset.get(i).getCategory();
-                                                System.out.println(current);
+                                            for (int i = dataset.size() - 20; i < dataset.size(); i++) {
+                                                String field = dataset.get(i).getCategory();
+                                                System.out.println(field);
                                             }
                                             break;
 
                                         case 4:
-                                            for (int i = 0; i < 20; i++) {
-                                                Double current = dataset.get(i).getPrice();
-                                                System.out.println(current);
+                                            for (int i = dataset.size() - 20; i < dataset.size(); i++) {
+                                                Double field = dataset.get(i).getPrice();
+                                                System.out.println(field);
                                             }
                                             break;
 
                                         case 5:
-                                            for (int i = 0; i < 20; i++) {
-                                                String current = dataset.get(i).getOld_price();
-                                                System.out.println(current);
+                                            for (int i = dataset.size() - 20; i < dataset.size(); i++) {
+                                                String field = dataset.get(i).getOld_price();
+                                                System.out.println(field);
                                             }
                                             break;
 
                                         case 6:
-                                            for (int i = 0; i < 20; i++) {
-                                                Boolean current = dataset.get(i).getSellable_online();
-                                                System.out.println(current);
+                                            for (int i = dataset.size() - 20; i < dataset.size(); i++) {
+                                                Boolean field = dataset.get(i).getSellable_online();
+                                                System.out.println(field);
                                             }
                                             break;
 
                                         case 7:
-                                            for (int i = 0; i < 20; i++) {
-                                                String current = dataset.get(i).getLink();
-                                                System.out.println(current);
+                                            for (int i = dataset.size() - 20; i < dataset.size(); i++) {
+                                                String field = dataset.get(i).getLink();
+                                                System.out.println(field);
                                             }
                                             break;
 
                                         case 8:
-                                            for (int i = 0; i < 20; i++) {
-                                                Boolean current = dataset.get(i).getOther_colors();
-                                                System.out.println(current);
+                                            for (int i = dataset.size() - 20; i < dataset.size(); i++) {
+                                                Boolean field = dataset.get(i).getOther_colors();
+                                                System.out.println(field);
                                             }
                                             break;
 
                                         case 9:
-                                            for (int i = 0; i < 20; i++) {
-                                                String current = dataset.get(i).getShort_description();
-                                                System.out.println(current);
+                                            for (int i = dataset.size() - 20; i < dataset.size(); i++) {
+                                                String field = dataset.get(i).getShort_description();
+                                                System.out.println(field);
                                             }
                                             break;
 
                                         case 10:
-                                            for (int i = 0; i < 20; i++) {
-                                                String current = dataset.get(i).getDesigner();
-                                                System.out.println(current);
+                                            for (int i = dataset.size() - 20; i < dataset.size(); i++) {
+                                                String field = dataset.get(i).getDesigner();
+                                                System.out.println(field);
                                             }
                                             break;
 
                                         case 11:
-                                            for (int i = 0; i < 20; i++) {
-                                                Integer current = dataset.get(i).getDepth();
-                                                System.out.println(current);
+                                            for (int i = dataset.size() - 20; i < dataset.size(); i++) {
+                                                Integer field = dataset.get(i).getDepth();
+                                                System.out.println(field);
                                             }
                                             break;
 
                                         case 12:
-                                            for (int i = 0; i < 20; i++) {
-                                                Integer current = dataset.get(i).getHeight();
-                                                System.out.println(current);
+                                            for (int i = dataset.size() - 20; i < dataset.size(); i++) {
+                                                Integer field = dataset.get(i).getHeight();
+                                                System.out.println(field);
                                             }
                                             break;
 
                                         case 13:
-                                            for (int i = 0; i < 20; i++) {
-                                                Integer current = dataset.get(i).getWidth();
-                                                System.out.println(current);
+                                            for (int i = dataset.size() - 20; i < dataset.size(); i++) {
+                                                Integer field = dataset.get(i).getWidth();
+                                                System.out.println(field);
                                             }
                                             break;
                                     }
@@ -362,6 +361,21 @@ public class Main {
                     System.out.println("If yes, choose another option from the list above!");
                     break;
                 case 2:
+                    // // IMPLEMENTATION OF FUNCTINALITY 2 a)
+                    // System.out.println("Based on which field would you like to sort?");
+                    // printTheMenuOptions();
+                    // int nth_input = sc.nextInt();
+                    // switch (nth_input) {
+                    // case 1:
+
+                    // }
+
+                    // Comparator<Dataset> comparator = (h1,h2) ->
+                    // h1.getPrice().compareTo(h2.getPrice());
+                    // dataset.sort(comparator);
+                    // dataset.sort(comparator.reversed());
+                    // System.out.println(dataset);
+
                     break;
                 case 3:
                     break;
@@ -398,5 +412,4 @@ public class Main {
 
         }
     }
-
 }
