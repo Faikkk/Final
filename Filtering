@@ -1,0 +1,154 @@
+.....
+
+static String columnname() {
+        return "Item_ID,Name,Category,Price,Old_Price,Sellable_Online,Link,Other_Colors, Short_Description, Designer, Depth, Height, Width";
+    }
+
+    static void allFields() {
+        for (products products : ik) {
+            products.printobj();
+            System.out.println();
+        }
+    }
+
+    static List<products> Filtermethod(List<products> mv, int index) {
+        int fltr;
+        switch (index) {
+            case 1:
+                System.out.println("Please Enter Filter option for Item_ID\n1 - Contains\n2 - Null");
+                fltr = sc.nextInt();
+///will write
+
+
+            case 2:
+                System.out.println("Clear! Please Enter Filter option for Name\n1 - Contains\n2 - Null");
+                fltr= sc.nextInt();
+
+                if(fltr==1){
+                    System.out.println("The String you want to contain is: ");
+                    sc.nextLine();
+                    String ln= sc.nextLine();
+                    ik = ik.stream().filter(products -> {
+                        return products.get_Name().contains(ln);
+                    }).collect(Collectors.toList());
+                }
+                if(fltr==2){
+                    ik = ik.stream().filter(products -> {
+                        return products.get_Name().length()==0;
+                    }).collect(Collectors.toList());
+                }
+                break;
+            case 3:
+                System.out.println("Clear! Please Enter Filter option for Category\n1 - Contains\n2 - Null");
+                fltr=sc.nextInt();
+
+                if(fltr==1){
+                    System.out.println("The String you want to contain is: ");
+                    String ln= sc.nextLine();
+                    ik = ik.stream().filter(products -> {
+                        return products.get_Category().contains(ln);
+                    }).collect(Collectors.toList());
+                }
+                if(fltr==2){
+                    ik = ik.stream().filter(products -> {
+                        return products.get_Category().length()==0;
+                    }).collect(Collectors.toList());
+                }
+                break;
+              case 4:
+                System.out.println(
+                        "Clear Sir! Choose Filter option for Price\n1 - Equal \n2 - Greater than\n3 - Less than\n4 - Greater and Equal to\n5 - Less and Equal to");
+                fltr = sc.nextInt();
+                if (fltr == 1) {
+                    System.out.println(
+                            "Enter the value you want the Price to be: ");
+                    sc.nextLine();
+                    String cnt = sc.nextLine();
+                    ik = ik.stream().filter(products -> {
+                        return products.get_Price().equals(cnt);
+                    }).collect(Collectors.toList());
+                }
+                if (fltr == 2) {
+                    System.out.println("Enter the value of Price which you want to be greater than ");
+                    int pri= sc.nextInt();
+                    ik = ik.stream().filter(products -> {
+                        return Integer.parseInt(products.get_Price())> pri;
+                    }).collect(Collectors.toList());
+                }
+
+                if (fltr == 3) {
+                    System.out.println("Enter the value of Price which you want to be less than ");
+                    int pri= sc.nextInt();
+                    ik = ik.stream().filter(products -> {
+                        return Integer.parseInt(products.get_Price())< pri;
+                    }).collect(Collectors.toList());
+        }
+
+                if (fltr == 4) {
+                    System.out.println("Enter the value of Price which you want to be greater than and equal to");
+                    int pri= sc.nextInt();
+                    ik = ik.stream().filter(products -> {
+                        return Integer.parseInt(products.get_Price())>= pri;
+                    }).collect(Collectors.toList());
+                }
+                if (fltr == 5) {
+                    System.out.println("Enter the value of Price which you want to be less than and equal to");
+                    int pri= sc.nextInt();
+                    mv = mv.stream().filter(products -> {
+                        return Integer.parseInt(products.get_Price())<= pri;
+                    }).collect(Collectors.toList());
+                }
+                break;
+
+
+
+            case 5:
+                //old price
+                
+                
+
+            case 6:
+                System.out.println("Clear Sir! Please Enter Filter option for Sellable_Online\n1 - Contains\n2 - Null");
+                fltr=sc.nextInt();
+                
+                if(fltr==1){
+                
+                    System.out.println("The String you want to contain is: ");
+                    sc.nextLine();
+                    String ln= sc.nextLine();
+                    ik = ik.stream().filter(products -> {
+                            return products.get_Sellable_Online().contains(ln);
+                            }).collect(Collectors.toList()); }
+                if(fltr==2){
+                
+                            ik = ik.stream().filter(products -> {
+                            return products.get_Sellable_Online().length()==0;
+                            }).collect(Collectors.toList());
+                            }
+                            break;
+
+                case 7:
+
+                    System.out.println(" Enter Filter option for Link\n1 - Contains\n2 - Null");
+                    fltr=sc.nextInt();
+                      if(fltr==1){
+                            System.out.println("The String you want to contain is: ");
+                            sc.nextLine();
+                            String ln= sc.nextLine();
+                            ik = ik.stream().filter(products -> {
+                            return movies.get_Link().contains(ln);
+                            }).collect(Collectors.toList());
+                            }
+                            if(fltr==2){
+                            ik = ik.stream().filter(products -> {
+                            return movies.get_Link().length()==0;
+                            }).collect(Collectors.toList());
+                            }
+                            break;
+                            }
+                            return mv;
+                            }
+
+
+
+           
