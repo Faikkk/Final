@@ -35,7 +35,6 @@ public class Dataset implements Comparable<Dataset> {
         this.depth = depth;
         this.height = height;
         this.width = width;
-
     }
 
     public Integer getItem_id() {
@@ -157,7 +156,7 @@ public class Dataset implements Comparable<Dataset> {
                 "Name: " + this.getName() + "\n" +
                 "Category: " + this.getCategory() + "\n" +
                 "Price: " + this.getPrice() + "\n" +
-                "Old Price: " + this.getPrice() + "\n" +
+                "Old Price: " + this.getOld_price() + "\n" +
                 "Sellable Online: " + this.getSellable_online() + "\n" +
                 "Link: " + this.getLink() + "\n" +
                 "Other Colors: " + this.getOther_colors() + "\n" +
@@ -166,6 +165,23 @@ public class Dataset implements Comparable<Dataset> {
                 "Depth: " + this.getDepth() + "\n" +
                 "Height: " + this.getHeight() + "\n" +
                 "Width: " + this.getWidth() + "\n");
+    }
+
+    public String printStuff() {
+        return ("\n" +
+                +this.getItem_id() + "," +
+                this.getName() + "," +
+                this.getPrice() + "," +
+                this.getOld_price() + "," +
+                this.getSellable_online() + "," +
+                this.getLink() + "," +
+                this.getOther_colors() + "," +
+                this.getShort_description() + "," +
+                this.getDesigner() + "," +
+                this.getDepth() + "," +
+                this.getHeight() + "," +
+                this.getWidth() + ",");
+
     }
 
     @Override
